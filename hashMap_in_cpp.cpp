@@ -9,10 +9,12 @@ int main(int argc, char const *argv[])
 	hashmap.insert({"p","NULL"});
 	hashmap.insert({"q","nikhil"});
 	hashmap.insert({"r","telkunte"});
-	hashmap["p"] = "replace";
-	hashmap.erase("p");
-	hashmap.insert({"p","replace"});
+	if(hashmap.count("p") > 0)
+		hashmap["p"] = "replace";
+	else
+		hashmap.insert({"p","add"});
 	cout<<"Max Size : " << hashmap.size()<<endl;
+	hashmap.erase("p");
 	for (pair<string, string> element : hashmap)
 		cout << element.first << " :: " << element.second << endl;
 	hashmap.clear();
